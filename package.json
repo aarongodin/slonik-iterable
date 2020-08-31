@@ -1,0 +1,45 @@
+{
+  "name": "slonik-iterable",
+  "version": "0.1.0-rc.2",
+  "description": "Helpers for query building with iterables",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "rm -rf dist && tsc",
+    "lint": "eslint ./src --env node --ext .ts,.js",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "slonik",
+    "utility",
+    "iterable",
+    "helper"
+  ],
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "author": "Aaron Godin <godinaaweb@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.6.2",
+    "@types/slonik": "^22.1.3",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "@vertex-social/eslint-config": "^1.0.0",
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.1",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "pg": "^8.3.3",
+    "slonik": "^22.4.12"
+  },
+  "peerDependencies": {
+    "slonik": "^22.4.12"
+  }
+}
