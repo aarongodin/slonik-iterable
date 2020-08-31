@@ -80,7 +80,7 @@ const query = sql`
 
 ### `TranslateFn`
 
-Methods that insert values into `sql` statements accept an optional `translate` argument as a function. You can use this as a callback to modify the value inserted into the statement. This allows making sure the value is handled with the proper
+Methods that insert values into `sql` statements accept an optional `translate` argument as a function. You can use this as a callback to modify the value inserted into the statement. This allows making sure the value is handled with the proper `sql` query building helper.
 
 ```ts
 import { sql } from "slonik"
@@ -92,18 +92,22 @@ const payload = {
     nested1: "val2",
     nested2: "val3",
   },
+  col4: 'val4'
 }
 
-function translateValue(col, val) {
-  if (col === 'col2') {
-    return sql.json(val)
+const expression = assignment.fromObject(payload, (col, val) => {
+  switch (col) {
+    case 'col2':
+      return sql.json(val) // val is { nested1: "val2", nested2: "val3" }
+    case 'col3':
+      return sql.binary(Buffer.from(val)) // val is 'val4'
+    default:
+      return val
   }
-
-  return val
-}
+})
 
 const query = sql`
   UPDATE table
-  SET ${assignment.fromObject(payload, translateValue)}
+  SET ${expression}
 `
 ```
