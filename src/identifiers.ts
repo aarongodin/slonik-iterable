@@ -1,9 +1,9 @@
-import { sql, SqlTokenType } from "slonik";
+import { sql, ListSqlTokenType } from "slonik";
 
 export function fromArray(
   identifiers: string[],
   tableName?: string
-): SqlTokenType {
+): ListSqlTokenType {
   return sql.join(
     identifiers.map((ident) => {
       const idents = [ident];
@@ -19,6 +19,6 @@ export function fromArray(
 export function fromObject(
   obj: Record<string, any>,
   tableName?: string
-): SqlTokenType {
+): ListSqlTokenType {
   return fromArray(Object.keys(obj), tableName);
 }
