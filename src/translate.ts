@@ -3,12 +3,12 @@ import { sql, ValueExpressionType } from "slonik";
 export function translateValue(
   column: string,
   value: any
-): ValueExpressionType {
+): [string, ValueExpressionType] {
   let currentValue = value;
 
   if (Array.isArray(currentValue)) {
     currentValue = sql.array(currentValue, "text");
   }
 
-  return currentValue;
+  return [column, currentValue];
 }

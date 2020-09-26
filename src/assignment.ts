@@ -7,7 +7,8 @@ export function fromObject(
 ): SqlTokenType {
   const values = Object.values(
     Object.entries(payload).map(([column, value]) => {
-      return sql`${sql.identifier([column])} = ${translate(column, value)}`;
+      const [currentColumn, currentValue] = translate(column, value);
+      return sql`${sql.identifier([currentColumn])} = ${currentValue}`;
     })
   );
   return sql.join(values, sql`, `);
