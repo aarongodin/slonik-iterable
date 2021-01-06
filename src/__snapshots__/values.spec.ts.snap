@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`values helpers fromObject() should return the slonik construct for a set of object properties 1`] = `
+Object {
+  "glue": Object {
+    "sql": ", ",
+    "type": "SLONIK_TOKEN_SQL",
+    "values": Array [],
+  },
+  "members": Array [
+    "first value",
+    222,
+  ],
+  "type": "SLONIK_TOKEN_LIST",
+}
+`;
+
+exports[`values helpers fromObject() should return the slonik construct for a set of object properties with translation 1`] = `
+Object {
+  "glue": Object {
+    "sql": ", ",
+    "type": "SLONIK_TOKEN_SQL",
+    "values": Array [],
+  },
+  "members": Array [
+    "first value",
+    Object {
+      "type": "SLONIK_TOKEN_JSON",
+      "value": Object {
+        "isaJson": true,
+      },
+    },
+  ],
+  "type": "SLONIK_TOKEN_LIST",
+}
+`;

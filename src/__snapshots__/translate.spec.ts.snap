@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`translate translateValue() returns a slonik array for values that are arrays 1`] = `
+Object {
+  "memberType": "text",
+  "type": "SLONIK_TOKEN_ARRAY",
+  "values": Array [
+    "is",
+    "an",
+    "array!",
+  ],
+}
+`;

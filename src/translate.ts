@@ -1,14 +1,11 @@
-import { sql, ValueExpressionType } from "slonik";
+import { sql, ValueExpressionType } from "slonik"
 
-export function translateValue(
-  column: string,
-  value: any
-): ValueExpressionType {
-  let currentValue = value;
+export function translateValue(column: string, value: any): ValueExpressionType {
+  let currentValue = value
 
   if (Array.isArray(currentValue)) {
-    currentValue = sql.array(currentValue, "text");
+    currentValue = sql.array(currentValue, "text")
   }
 
-  return currentValue;
+  return currentValue
 }

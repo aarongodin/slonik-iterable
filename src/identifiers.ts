@@ -1,24 +1,18 @@
-import { sql, ListSqlTokenType } from "slonik";
+import { sql, ListSqlTokenType } from "slonik"
 
-export function fromArray(
-  identifiers: string[],
-  tableName?: string
-): ListSqlTokenType {
+export function fromArray(identifiers: string[], tableName?: string): ListSqlTokenType {
   return sql.join(
     identifiers.map((ident) => {
-      const idents = [ident];
+      const idents = [ident]
       if (tableName) {
-        idents.unshift(tableName);
+        idents.unshift(tableName)
       }
-      return sql.identifier(idents);
+      return sql.identifier(idents)
     }),
-    sql`, `
-  );
+    sql`, `,
+  )
 }
 
-export function fromObject(
-  obj: Record<string, any>,
-  tableName?: string
-): ListSqlTokenType {
-  return fromArray(Object.keys(obj), tableName);
+export function fromObject(obj: Record<string, any>, tableName?: string): ListSqlTokenType {
+  return fromArray(Object.keys(obj), tableName)
 }
