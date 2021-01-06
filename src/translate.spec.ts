@@ -4,7 +4,7 @@ describe("translate", () => {
   describe("translateValue()", () => {
     it("returns the current value given the value is not a special type", () => {
       const actual = translateValue("myCol", "just a string")
-      expect(actual).toEqual("just a string")
+      expect(actual).toEqual(["myCol", "just a string"])
     })
 
     it("returns a slonik array for values that are arrays", () => {

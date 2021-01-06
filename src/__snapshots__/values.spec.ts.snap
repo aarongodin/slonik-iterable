@@ -34,3 +34,23 @@ Object {
   "type": "SLONIK_TOKEN_LIST",
 }
 `;
+
+exports[`values helpers fromObject() should return the slonik construct for a set of object properties with translation that operates on the column name 1`] = `
+Object {
+  "glue": Object {
+    "sql": ", ",
+    "type": "SLONIK_TOKEN_SQL",
+    "values": Array [],
+  },
+  "members": Array [
+    "first value",
+    Object {
+      "type": "SLONIK_TOKEN_JSON",
+      "value": Object {
+        "isaJson": true,
+      },
+    },
+  ],
+  "type": "SLONIK_TOKEN_LIST",
+}
+`;

@@ -1,5 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`assignment helpers fromObject() given a custom translate function should allow mixing return types in the custom translation 1`] = `
+Object {
+  "glue": Object {
+    "sql": ", ",
+    "type": "SLONIK_TOKEN_SQL",
+    "values": Array [],
+  },
+  "members": Array [
+    Object {
+      "sql": "\\"customType_translated\\" = $1",
+      "type": "SLONIK_TOKEN_SQL",
+      "values": Array [
+        "{\\"iamJson\\":true}",
+      ],
+    },
+    Object {
+      "sql": "\\"one\\" = $1",
+      "type": "SLONIK_TOKEN_SQL",
+      "values": Array [
+        "two",
+      ],
+    },
+  ],
+  "type": "SLONIK_TOKEN_LIST",
+}
+`;
+
 exports[`assignment helpers fromObject() given a custom translate function should return a constructed SqlTokenType 1`] = `
 Object {
   "glue": Object {
@@ -17,6 +44,37 @@ Object {
     },
     Object {
       "sql": "\\"customType2\\" = $1::\\"text\\"[]",
+      "type": "SLONIK_TOKEN_SQL",
+      "values": Array [
+        Array [
+          "one",
+          "two",
+          "three",
+        ],
+      ],
+    },
+  ],
+  "type": "SLONIK_TOKEN_LIST",
+}
+`;
+
+exports[`assignment helpers fromObject() given a custom translate function should return a slonik construct including a column name translation 1`] = `
+Object {
+  "glue": Object {
+    "sql": ", ",
+    "type": "SLONIK_TOKEN_SQL",
+    "values": Array [],
+  },
+  "members": Array [
+    Object {
+      "sql": "\\"customType_translated\\" = $1",
+      "type": "SLONIK_TOKEN_SQL",
+      "values": Array [
+        "{\\"iamJson\\":true}",
+      ],
+    },
+    Object {
+      "sql": "\\"customType2_translated\\" = $1::\\"text\\"[]",
       "type": "SLONIK_TOKEN_SQL",
       "values": Array [
         Array [

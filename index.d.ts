@@ -1,7 +1,8 @@
 import { SqlTokenType, ListSqlTokenType, ValueExpressionType } from "slonik"
 
 declare module "slonik-iterable" {
-  type TranslateFn = (column: string, value: any) => ValueExpressionType
+  type TranslationResultWithColumn = [string, ValueExpressionType]
+  type TranslateFn = (column: string, value: any) => ValueExpressionType | TranslationResultWithColumn
 
   interface Assignment {
     fromObject: (payload: Record<string, any>, translate?: TranslateFn) => SqlTokenType

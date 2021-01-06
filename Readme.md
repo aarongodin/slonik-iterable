@@ -1,6 +1,7 @@
 ## slonik-iterable
 
 [![CI](https://github.com/aarongodin/slonik-iterable/workflows/CI/badge.svg)](https://github.com/aarongodin/slonik-iterable/actions?query=workflow%3ACI)
+[![npm](https://img.shields.io/npm/v/slonik-iterable)](https://npmjs.com/slonik-iterable)
 
 Helpers for query building with iterables. Ships with TS definitions.
 
@@ -107,6 +108,28 @@ const expression = assignment.fromObject(payload, (col, val) => {
       return val
   }
 })
+
+const query = sql`
+  UPDATE table
+  SET ${expression}
+`
+```
+
+#### Returning a Tuple
+
+The `TranslateFn` function type also allows returning a Tuple with arity-2 where the first element is a `string` and the second element the translated value (any `ValueExpressionType` from slonik). This allows translation of the column name at the same time as value translation.
+
+```ts
+import { sql } from "slonik"
+import { assignment } from "slonik-iterable"
+import { snakeCase } from "lodash"
+
+const payload = {
+  myColumn: "val1",
+  anotherColumn: "val2",
+}
+
+const expression = assignment.fromObject(payload, (col, val) => [snakeCase(col), val])
 
 const query = sql`
   UPDATE table
