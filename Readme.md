@@ -1,5 +1,7 @@
 ## slonik-iterable
 
+![CI](https://github.com/aarongodin/slonik-iterable/workflows/CI/badge.svg)
+
 Helpers for query building with iterables. Ships with TS definitions.
 
 ### Motivation
