@@ -1,6 +1,6 @@
 ## slonik-iterable
 
-![CI](https://github.com/aarongodin/slonik-iterable/workflows/CI/badge.svg)
+[![CI](https://github.com/aarongodin/slonik-iterable/workflows/CI/badge.svg)](https://github.com/aarongodin/slonik-iterable/actions?query=workflow%3ACI)
 
 Helpers for query building with iterables. Ships with TS definitions.
 
