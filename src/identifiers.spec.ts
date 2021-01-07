@@ -37,4 +37,16 @@ describe("identifier helpers", () => {
       expect(actual).toMatchSnapshot()
     })
   })
+
+  describe("fromSet()", () => {
+    it("should return the list of identifiers without a table name", () => {
+      const actual = identifiers.fromSet(new Set(["first", "secondIdent", "third_ident"]))
+      expect(actual).toMatchSnapshot()
+    })
+
+    it("should return the list of identifiers with a table name", () => {
+      const actual = identifiers.fromSet(new Set(["first", "secondIdent", "third_ident"]), "my_table")
+      expect(actual).toMatchSnapshot()
+    })
+  })
 })

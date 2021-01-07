@@ -49,4 +49,35 @@ describe("values helpers", () => {
       expect(actual).toMatchSnapshot()
     })
   })
+
+  describe("fromMap()", () => {
+    it("should return the slonik construct for a map object", () => {
+      const actual = values.fromMap(
+        new Map<string, any>([
+          ["first", "first value"],
+          ["second", 222],
+        ]),
+      )
+
+      expect(actual).toMatchSnapshot()
+    })
+
+    it("should return the slonik construct for a map object with translation", () => {
+      const actual = values.fromMap(
+        new Map<string, any>([
+          ["first", "first value"],
+          ["specialType", { isaJson: true }],
+        ]),
+        (column, value) => {
+          if (column === "specialType") {
+            return sql.json(value)
+          } else {
+            return value
+          }
+        },
+      )
+
+      expect(actual).toMatchSnapshot()
+    })
+  })
 })

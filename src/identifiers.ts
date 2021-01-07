@@ -16,3 +16,7 @@ export function fromArray(identifiers: string[], tableName?: string): ListSqlTok
 export function fromObject(obj: Record<string, any>, tableName?: string): ListSqlTokenType {
   return fromArray(Object.keys(obj), tableName)
 }
+
+export function fromSet(identifiers: Set<string>, tableName?: string): ListSqlTokenType {
+  return fromArray(Array.from(identifiers), tableName)
+}

@@ -11,3 +11,7 @@ export function fromObject(payload: Record<string, any>, translate = translateVa
   )
   return sql.join(values, sql`, `)
 }
+
+export function fromMap(payload: Map<string, any>): SqlTokenType {
+  return fromObject(Object.fromEntries(payload))
+}

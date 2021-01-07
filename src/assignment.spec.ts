@@ -83,4 +83,23 @@ describe("assignment helpers", () => {
       })
     })
   })
+
+  describe("fromMap()", () => {
+    it("should return a constructed SqlTokenType", () => {
+      const actual = assignment.fromMap(new Map([["first", "my first value"]]))
+
+      expect(actual).toMatchSnapshot()
+    })
+
+    it("should return a constructed SqlTokenType with basic type assumptions", () => {
+      const actual = assignment.fromMap(
+        new Map<string, any>([
+          ["first", "a string"],
+          ["second", 22],
+        ]),
+      )
+
+      expect(actual).toMatchSnapshot()
+    })
+  })
 })

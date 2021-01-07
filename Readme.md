@@ -7,7 +7,11 @@ Helpers for query building with iterables. Ships with TS definitions.
 
 ### Motivation
 
-I've been really enjoying [slonik](https://github.com/gajus/slonik) for all of my projects using Postgres. This is a collection of helper functions I have been passing around from project to project for operating on arrays and objects.
+I've been really enjoying [slonik](https://github.com/gajus/slonik) for all of my projects using Postgres. This is a collection of helper functions I have been passing around from project to project for operating on arrays, plain objects, Maps, and Sets.
+
+### Requirements
+
+* Node 12 or higher. TS build target for [slonik-iterable](https://github.com/aarongodin/slonik-iterable) is ES2019.
 
 ## Docs & Examples
 
@@ -29,6 +33,25 @@ const payload = {
 const query = sql`
   INSERT INTO table (col1, col2)
   VALUES (${values.fromObject(payload)})
+`
+```
+
+#### fromMap()
+
+Convenience for passing a `Map<string, any>`.
+
+```ts
+import { sql } from "slonik"
+import { values } from "slonik-iterable"
+
+const payload = new Map([
+  ["col1", "first value"],
+  ["col2", 222],
+])
+
+const query = sql`
+  INSERT INTO table (col1, col2)
+  VALUES (${values.fromMap(payload)})
 `
 ```
 
@@ -63,6 +86,16 @@ const query = sql`
 `
 ```
 
+#### fromSet()
+
+Convenience for passing a `Set<string>` (behaves the same as `fromArray()`).
+
+```ts
+import { values } from "slonik-iterable"
+
+const PUBLIC_COLUMNS = values.fromSet(new Set(["col_1", "col_2", "col_3"]), "table")
+```
+
 ### `assignment`
 
 Create an assignment statement from an object for an update.
@@ -78,6 +111,24 @@ const payload = {
 
 const query = sql`
   UPDATE table SET ${assignment.fromObject(payload)}
+`
+```
+
+#### fromMap()
+
+Convenience for passing a `Map<string, any>`.
+
+```ts
+import { sql } from "slonik"
+import { assignment } from "slonik-iterable"
+
+const payload = new Map([
+  ["col1", "first value"],
+  ["col2", 222],
+])
+
+const query = sql`
+  UPDATE table SET ${assignment.fromMap(payload)}
 `
 ```
 
