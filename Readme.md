@@ -36,7 +36,7 @@ const query = sql`
 `
 ```
 
-#### fromMap()
+#### `fromMap()`
 
 Convenience for passing a `Map<string, any>`.
 
@@ -86,7 +86,7 @@ const query = sql`
 `
 ```
 
-#### fromSet()
+#### `fromSet()`
 
 Convenience for passing a `Set<string>` (behaves the same as `fromArray()`).
 
@@ -114,7 +114,7 @@ const query = sql`
 `
 ```
 
-#### fromMap()
+#### `fromMap()`
 
 Convenience for passing a `Map<string, any>`.
 
