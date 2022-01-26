@@ -1,6 +1,6 @@
 {
   "name": "slonik-iterable",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Helpers for query building with iterables",
   "main": "dist/index.js",
   "scripts": {
